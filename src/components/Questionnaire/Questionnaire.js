@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 class Questionnaire extends Component {
   constructor(props) {
@@ -66,9 +66,9 @@ class Questionnaire extends Component {
     // Implement your logic here
     // Set the 'submitted' state to true to display the success message
     this.setState({ submitted: true });
-    Swal.fire("Thank you!", "Form submitted!", "success").then(() =>
-      this.handleBrowseClick()
-    );
+    // Swal.fire("Thank you!", "Form submitted!", "success").then(() =>
+    this.handleBrowseClick();
+    // );
   };
   handleBrowseClick() {
     const { updateHeaderTitle, updateViewType, fetchFeatured } = this.props;
