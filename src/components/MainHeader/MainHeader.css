@@ -1,0 +1,57 @@
+.playlist-image {
+  width: 200px;
+  border-radius: 8px;
+}
+
+.playlist-header-container {
+  display: flex;
+}
+
+.playlist-details-container {
+  padding-left: 30px;
+  position: relative;
+  top: 100px;
+}
+
+.playlist-text {
+  font-family: "Roboto", sans-serif !important;
+  letter-spacing: 1.5px;
+  font-size: 13px;
+}
+
+.header-titles {
+  font-size: 36px;
+  padding: 15px 5px;
+}
+
+.artist-header-container {
+  display: flex;
+}
+
+.artist-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+
+.artist-header-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+}
+
+.artist-header-name p {
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif !important;
+  font-size: 13px;
+}
+
+.recommendation-subscript {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif !important;
+  color: rgb(38, 128, 144);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}

@@ -1,0 +1,24 @@
+.browse-view-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  gap: 20px; /* Add some space between category items */
+}
+
+.category-item {
+  width: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+  transition: box-shadow 0.2s ease; /* Add a smooth transition on hover */
+}
+
+.category-item:hover img {
+  opacity: 0.8; /* Reduce the opacity on hover */
+}
+
+.category-image img {
+  width: 100%;
+  transition: opacity 0.2s ease; /* Add a smooth transition on hover */
+}

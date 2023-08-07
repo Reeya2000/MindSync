@@ -1,0 +1,527 @@
+body,
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif !important;
+  background: rgb(216, 236, 241);
+  color: rgb(8, 62, 72);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  position: relative;
+}
+
+.left-side-section {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  width: 180px;
+  overflow-y: auto;
+}
+
+.main-section {
+  width: 900px;
+  position: relative;
+  left: 200px;
+  padding: 0 10px;
+}
+
+.main-section-container {
+  position: relative;
+  top: 50px;
+  padding-bottom: 100px;
+}
+
+/* Add the CSS for the thinking cloud container */
+.thinking-cloud {
+  position: absolute;
+  top: 70px; /* Adjust the positioning as needed */
+  right: 15px; /* Adjust the positioning as needed */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Light gray background for the cloud */
+  color: #333; /* Dark gray text color for the quote */
+  padding: 15px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-style: italic;
+  box-shadow: white; /* Add a subtle shadow effect */
+  z-index: 1; /* Ensure the cloud appears above other elements */
+  animation: fadeIn 0.5s ease; /* Apply the fadeIn animation */
+  transition: transform 0.3s ease; /* Add transition effect for smooth hovering */
+  transform-origin: 50% 100%; /* Set the origin of the transformation */
+}
+
+.thinking-cloud:hover {
+  transform: scale(1.1); /* Apply scale transformation on hover */
+  cursor: pointer;
+}
+
+/* Define the fadeIn animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Create a triangle (thought bubble) shape */
+.thinking-cloud::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  border-left: 30px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid rgba(255, 255, 255, 0.9); /* Light gray background for the triangle */
+  z-index: -1; /* Push the triangle behind the cloud */
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.playlist-title {
+  font-size: 36px;
+  font-family: "Roboto", sans-serif !important;
+  padding: 0 0 20px 0;
+}
+
+/* Artist CSS */
+.artist-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 0;
+}
+
+.artist-name {
+  padding: 10px;
+  line-height: 28px;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 180px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.artist-name a {
+  text-decoration: none;
+  color: rgb(8, 62, 72);
+}
+
+.artist-name img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.artist-name:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.artist-name:hover img {
+  opacity: 0.8;
+}
+
+/* ArtWork CSS */
+.artwork-container {
+  width: 180px;
+  position: fixed;
+  bottom: 75px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease; /* Add a smooth transition for zoom effect */
+}
+
+.artwork {
+  width: 100%;
+  border-radius: 8px;
+  transform-origin: center; /* Set the transformation origin to the center */
+  animation: zoomIn 8s infinite alternate; /* Apply the zoom-in animation */
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1); /* Starting scale (normal size) */
+  }
+  to {
+    transform: scale(1.1); /* Ending scale (zoomed in) */
+  }
+}
+
+/* Footer CSS */
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: rgb(194, 225, 230);
+  height: 80px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif !important;
+  font-size: 20px;
+}
+
+/* Header CSS */
+
+.header {
+  position: fixed;
+  width: 900px;
+  height: 50px;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end; /* Change this line to align UserDetails to the extreme right */
+  align-items: center; /* Vertically center the components */
+  background: rgb(216, 236, 241);
+}
+
+/* User Details CSS */
+
+.user-initials-container {
+  display: flex;
+  flex-direction: column; /* Align content in column layout */
+  align-items: flex-end; /* Align content to the extreme right */
+}
+
+.user-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(
+    18,
+    124,
+    143
+  ); /* Set the initial background color to green */
+  color: white; /* Set the text color to white for contrast */
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px; /* Add margin to move the circle below the display name */
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.user-circle:hover {
+  background-color: rgb(
+    25,
+    79,
+    89
+  ); /* Set a lighter version of green on hover */
+  cursor: pointer; /* Show a pointer cursor on hover */
+}
+
+.user-welcome {
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.user-display-name {
+  font-size: 18px;
+  color: rgb(38, 128, 144); /* Set the color of the display name to green */
+  cursor: pointer;
+}
+
+/* Questionnaire CSS */
+
+div.questionnaire-container {
+  font-family: "Roboto", sans-serif !important; /* Apply the desired font-family */
+  font-weight: normal; /* Set font-weight to normal to remove bold style */
+}
+
+div.questionnaire-container h2 {
+  text-align: center; /* Center the heading */
+  color: #fff; /* Set heading text color to white */
+}
+
+div.questionnaire-container label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: normal; /* You can keep the label text bold if needed */
+  color: rgb(8, 62, 72); /* Set label text color to white */
+}
+
+div.questionnaire-container input[type="radio"] {
+  margin-right: 5px;
+}
+
+div.questionnaire-container input[type="text"],
+div.questionnaire-container select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+div.questionnaire-container button {
+  display: block; /* Center the button */
+  margin: 20px auto 0; /* Add margin to center the button vertically */
+  padding: 10px 20px;
+  background-color: rgb(77, 162, 177);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+div.questionnaire-container button:hover {
+  background-color: rgb(38, 128, 144);
+}
+
+/* Style the success message */
+div.questionnaire-container p {
+  color: rgb(8, 62, 72);
+  margin-top: 20px;
+}
+
+/* SideMenu CSS */
+
+.sideMenu-container {
+  padding: 25px;
+}
+
+.sideMenu-container .active:before {
+  content: "";
+  border-left: 2px solid rgb(38, 128, 144);
+  position: relative;
+  left: -20px;
+}
+
+.sideMenu-items {
+  list-style-type: none;
+  line-height: 28px;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif !important;
+  width: 140px;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Add a smoother transition effect on hover */
+}
+
+.sideMenu-items:hover {
+  color: #fff;
+  background-color: rgb(
+    38,
+    128,
+    144
+  ); /* Change the background color on hover */
+  font-size: 16px; /* Increase the font size on hover */
+  padding-left: 15px; /* Add more padding to the left on hover */
+  width: 170px; /* Increase the width on hover */
+}
+
+.sideMenu-library {
+  font-family: "Roboto", sans-serif !important;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Song Controls CSS*/
+
+.song-controls {
+  justify-content: center;
+  display: flex;
+  margin-top: 20px;
+}
+
+.song-player-container .play-button {
+  position: relative;
+  top: -7px;
+  font-size: 40px;
+}
+
+.song-player-container .pause-button {
+  position: relative;
+  top: -7px;
+  font-size: 40px;
+  margin: 0 5px;
+}
+
+.forward,
+.reverse,
+.play-button {
+  padding: 0 10px;
+  color: rgb(8, 62, 72);
+  cursor: pointer;
+  font-size: 24px;
+  transition: color 0.2s ease; /* Add a smooth transition effect for color change */
+}
+
+.play-button:hover,
+.forward:hover,
+.reverse:hover {
+  color: rgb(38, 128, 144); /* Change the color on hover */
+}
+
+.reverse,
+.forward {
+  font-size: 22px;
+}
+
+.song-length-container {
+  margin-top: -10px;
+  display: flex;
+  justify-content: center;
+}
+
+.song-length {
+  width: 500px;
+  height: 4px;
+  background: grey;
+  border-radius: 4px;
+  margin-top: -5px;
+}
+
+.song-current-length {
+  margin: 0;
+  width: 100px;
+  height: 4px;
+  background: rgb(38, 128, 144);
+  border-radius: 4px;
+}
+
+.start-time {
+  font-size: 12px;
+  position: relative;
+  top: -10px;
+  left: -10px;
+}
+
+.end-time {
+  font-size: 12px;
+  position: relative;
+  top: -10px;
+  left: 10px;
+}
+
+.song-details {
+  left: 20px;
+  line-height: 22px;
+  position: absolute;
+}
+
+.song-footer-name {
+  font-family: "Roboto", sans-serif !important;
+  font-size: 14px;
+  color: rgb(8, 62, 72);
+}
+
+.artist-footer-name {
+  font-family: "Roboto", sans-serif !important;
+  color: rgb(38, 128, 144);
+  font-size: 13px;
+}
+
+/*Songlist CSS*/
+
+.songlist-header-container {
+  display: flex;
+  border-bottom: 1px solid rgb(102, 102, 102);
+  padding-bottom: 6px;
+  margin-top: 20px;
+}
+
+.user-song-item {
+  list-style-type: none;
+  border-bottom: 1px solid rgb(102, 102, 102);
+  display: flex;
+  align-items: center;
+  line-height: 50px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Add a smoother transition effect on hover */
+}
+
+.user-song-item:hover {
+  background: rgb(77, 162, 177);
+  transform: scale(
+    1.03
+  ); /* Slightly scale up the item on hover for visual appeal */
+}
+
+.active.user-song-item {
+  color: white;
+  background: rgb(77, 162, 177);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Add a subtle shadow effect for the active item */
+}
+
+.user-song-item:hover > .play-song {
+  opacity: 1;
+}
+
+.user-song-item .play-song {
+  width: 40px;
+  opacity: 0;
+  text-align: center;
+}
+
+.user-song-item .play-song .fa {
+  font-size: 30px;
+  position: relative;
+  top: 5px;
+  color: rgb(200, 200, 200);
+  cursor: pointer;
+  -webkit-text-stroke: 1px rgb(38, 128, 144);
+  transition: transform 0.2s ease; /* Add a transition for the transform property */
+}
+
+.play-song .fa:hover {
+  color: white;
+  transform: scale(1.1); /* Apply the scale effect on hover */
+}
+
+.songlist-track,
+.songlist-artist,
+.songlist-album {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 8px;
+  line-height: 44px;
+  margin-left: 10px;
+}
+
+.songlist-track-header,
+.songlist-artist-header,
+.songlist-album-header {
+  flex: 1;
+  font-family: "Roboto", sans-serif !important;
+  font-size: 15px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: rgb(8, 62, 72);
+  padding: 0 10px;
+  letter-spacing: 2px;
+}
+
+.songlist-track-header {
+  margin-left: 50px;
+}
